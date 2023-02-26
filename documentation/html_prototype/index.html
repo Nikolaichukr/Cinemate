@@ -2,9 +2,60 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Movies</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
+<div class="navigation-header">
+    <a class="active" href="index.html">Movies</a>
+    <a href="reviews.html">Reviews</a>
+</div>
+<div class="content">
+    <h1 class="middle-text">List of Movies</h1>
+    <div class="filter-year">
+        <form>
+            <div class="filter-field">
+                <label>From Year:</label>
+                <input class="year" type="number" min="1900" max="2023" step="1" value="1972"/>
+            </div>
+            <div class="filter-field">
+                <label>To Year:</label>
+                <input class="year" type="number" min="1900" max="2023" step="1" value="2023"/>
+            </div>
+            <button class="btn">Search</button>
+        </form>
+    </div>
+    <table>
+        <tr class="table-head">
+            <td>Title</td>
+            <td>Year</td>
+            <td>Director</td>
+            <td>Genre</td>
+            <td>Rating</td>
+        </tr>
+        <tr>
+            <td><a class="movie" href="movie.html">The Shawshank Redemption</a></td>
+            <td>1994</td>
+            <td>Frank Darabont</td>
+            <td>Drama</td>
+            <td>9.3</td>
+        </tr>
+        <tr>
+            <td>The Godfather</td>
+            <td>1972</td>
+            <td>Francis Ford Coppola</td>
+            <td>Crime, Drama</td>
+            <td>9.2</td>
+        </tr>
+        <tr>
+            <td>The Dark Knight</td>
+            <td>2008</td>
+            <td>Christopher Nolan</td>
+            <td>Action, Crime, Drama</td>
+            <td>9.0</td>
+        </tr>
+    </table>
+    <a href="add-movie.html" class="btn add">Add Movie</a>
+</div>
 </body>
 </html>
