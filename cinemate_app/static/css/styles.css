@@ -1,0 +1,225 @@
+/* Reset */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Roboto", "Lucida Grande", Verdana, Arial, sans-serif;
+    color: #05060B;
+}
+
+/* Header itself */
+.navigation-header {
+    background-color: #05060B;
+    overflow: hidden;
+}
+
+/* Header element */
+.navigation-header a {
+    float: left;
+    color: #fefefe;
+    text-align: center;
+    padding: 14px 30px;
+    text-decoration: none;
+    font-size: 25px;
+}
+
+/* Styles for a movie tab if hovered */
+.navigation-header a:hover {
+    background-color: #6f70a1;
+    color: #fefefe;
+}
+
+/* Styles for an active menu tab */
+.navigation-header a.active {
+    background-color: #606291;
+    color: #fefefe;
+}
+
+.cancel-div > a {
+    float: right;
+    background-color: #b94040;
+    color: #fefefe;
+}
+
+.cancel-div > a:hover {
+    background-color: #9d3434;
+}
+
+/* Title text */
+.middle-text {
+    text-align: center;
+    margin: 35px;
+}
+
+/* Styles for buttons */
+.btn {
+    background-color: #606291;
+    border: none;
+    color: #fefefe;
+    padding: 8px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 22px;
+    margin: 24px 0px 0px 0px;
+    border-radius: 10px;
+}
+
+/* Button hover */
+.btn:hover {
+    cursor: pointer;
+    background-color: #6f70a1;
+}
+
+/* Styles for the block with filtering */
+.filter-year {
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 3%;
+}
+
+.filter-year > form {
+    display: flex;
+    justify-content: space-between;
+}
+
+.filter-field > input {
+    font-size: 22px;
+    display: block;
+    width: 170px;
+    margin-top: 7px;
+}
+
+.filter-field > label {
+    font-size: 20px;
+}
+
+table, th, td {
+    border: 1px solid gray;
+    border-collapse: collapse;
+}
+
+/* Table styles */
+table {
+    margin-left: auto;
+    margin-right: auto;
+    width: 75%;
+}
+
+.table-head {
+    font-weight: 800;
+}
+
+td {
+    text-align: center;
+    vertical-align: middle;
+    padding: 10px;
+    font-size: 20px;
+}
+
+.add {
+    float: right;
+    margin-right: 12.5%;
+}
+
+.red {
+    background-color: #b94040;
+}
+
+.red:hover {
+    background-color: #9d3434;
+}
+
+.btn-right {
+    margin-top: 5px !important;
+    margin-right: 12.5% !important;
+}
+
+.add-form {
+    width: 50%;
+    background-color: #3b3b42;
+    color: #fefefe;
+    padding: 20px;
+    border-radius: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    align-items: baseline;
+    flex-direction: column;
+}
+
+.add-form > div {
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+.add-form > button {
+    margin-left: auto;
+}
+
+.add-form-label {
+    width: 18%;
+    clear: left;
+    text-align: right;
+    padding-right: 10px;
+    float: left;
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+.add-form > div > input, textarea {
+    height: 40px;
+    font-size: 20px;
+    width: 58%;
+    border-radius: 5px;
+    margin-left: 35px;
+    padding: 3px;
+}
+
+.add-form > div > textarea {
+    height: 80px;
+    max-width: 58%;
+}
+
+.movie, .review {
+    color: #05060B;
+}
+
+.div-row {
+    display: flex;
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2%;
+}
+
+.div-cell {
+    width: 50%;
+    font-size: 25px;
+}
+
+.table-title-left {
+    margin-left: 12.5%;
+    margin-top: 40px;
+}
+
+.rating {
+    font-size: 25px;
+    margin-top: 5px;
+}
+
+.text {
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.button-margin {
+    margin-top: 0;
+    margin-right: 0;
+}
+
+.left {
+    float: left;
+}

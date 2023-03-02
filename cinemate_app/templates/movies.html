@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{{ super() }}
+{% if movie_list %}
+<div class="filter-year">
+    <form>
+        <div class="filter-field">
+            <label>From Year:</label>
+            <input class="year" type="number" min="1900" max="2023" step="1" value="1972"/>
+        </div>
+        <div class="filter-field">
+            <label>To Year:</label>
+            <input class="year" type="number" min="1900" max="2023" step="1" value="2023"/>
+        </div>
+        <button class="btn">Search</button>
+    </form>
+</div>
+<table>
+    <tr class="table-head">
+        <td>Title</td>
+        <td>Year</td>
+        <td>Director</td>
+        <td>Genre</td>
+        <td>Rating</td>
+    </tr>
+    {% for movie in movie_list %}
+    <tr>
+        <td><a class="movie" href="{{ url_for('movies.movie', movie_id=movie.id) }}">{{ movie.title }}</a></td>
+        <td>{{ movie.year }}</td>
+        <td>{{ movie.director }}</td>
+        <td>{{ movie.genre }}</td>
+        <td>{{ movie.calculate_score() }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% else %}
+<h2 class="middle-text">There are no movies in database right now, but you can always add one.</h2>
+{% endif %}
+<a href="{{ url_for('movies.add_movie') }}" class="btn add">Add Movie</a>
+{% endblock content %}

@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+
+{% block navigation %}
+{{ super() }}
+<div class="cancel-div">
+    <a href="{{ url_for('movies.movies_page') }}">Cancel</a>
+</div>
+{% endblock navigation %}

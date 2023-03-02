@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{{ super() }}
+{% if reviews_list %}
+<table>
+    <tr class="table-head">
+        <td>Nickname</td>
+        <td>Score</td>
+        <td>Movie</td>
+        <td>Comment</td>
+    </tr>
+    {% for review in reviews_list %}
+    <tr>
+        <td>{{ review.nickname }}</td>
+        <td>{{ review.score }}</td>
+        <td>{{ review.movie.title }}</td>
+        <td><a class="review" href="{{ url_for('reviews.review', review_id=review.id) }}">
+            {% if review.comment|length <= 45 %}
+            {{ review.comment }}
+            {% else %}
+            {{ review.comment[:45] }}...
+            {% endif %}
+        </a></td>
+    </tr>
+    {% endfor %}
+</table>
+{% else %}
+<h2 class="middle-text">There are no reviews in database right now, but you can always add one.</h2>
+{% endif %}
+<a href="{{ url_for('reviews.add_review') }}" class="btn add">Add Review</a>
+{% endblock content %}

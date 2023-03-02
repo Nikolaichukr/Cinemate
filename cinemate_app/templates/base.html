@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% if title %}
+    <title>Cinemate - {{ title }}</title>
+    {% else %}
+    <title>Cinemate</title>
+    {% endif %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+<div class="navigation-header">
+    {% block navigation %}
+    <a href="{{ url_for('movies.movies_page') }}">Movies</a>
+    <a href="{{ url_for('reviews.reviews_page') }}">Reviews</a>
+    {% endblock navigation %}
+</div>
+<div class="content">
+    {% block content %}
+    {% if title %}
+    <h1 class="middle-text">{{ title }}</h1>
+    {% else %}
+    <h1 class="middle-text">Cinemate</h1>
+    {% endif %}
+    {% endblock content %}
+</div>
+</body>
+</html>

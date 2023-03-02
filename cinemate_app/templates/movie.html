@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1 class="middle-text">{{ movie.title }}</h1>
+<div class="div-row">
+    <div class="div-cell"><span><b>Director:</b> {{ movie.director }}</span></div>
+    <div class="div-cell"><span><b>Genre:</b> {{ movie.genre }}</span></td></div>
+</div>
+<div class="div-row">
+    <div class="div-cell"><span><b>Year:</b> {{ movie.year }}</span></div>
+    <div class="div-cell">
+        <a href="{{ url_for('movies.update_movie') }}" class="btn add button-margin">Update</a>
+    </div>
+</div>
+<button class="btn add button-margin red btn-right">Delete</button>
+<h2 class="table-title-left">Reviews</h2>
+{% if movie.reviews %}
+<table>
+    <tr class="table-head">
+        <td>Nickname</td>
+        <td>Score</td>
+        <td>Comment</td>
+    </tr>
+    {% for review in movie.reviews %}
+    <tr>
+        <td>{{ review.nickname }}</td>
+        <td>{{ review.score }}</td>
+        <td><a class="review" href="{{ url_for('reviews.review', review_id=review.id) }}">{{ review.comment }}</a></td>
+    </tr>
+    {% endfor %}
+</table>
+{% else %}
+<h2 class="middle-text">There is no reviews to this movie yet.</h2>
+{% endif %}
+<div class="div-row">
+    <div class="div-cell">
+        <span class="rating"><b>Rating:</b> {{ movie.calculate_score() }}</span>
+    </div>
+    <div class="div-cell">
+        <a href="{{ url_for('reviews.add_review') }}" class="btn add button-margin">Add Review</a>
+    </div>
+</div>
+{% endblock content %}
