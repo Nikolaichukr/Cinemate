@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block navigation %}
+{{ super() }}
+<div class="cancel-div">
+    {% block cancel_link %}
+    <a class="red" href="{{ url_for('movies.movies_page') }}">Cancel</a>
+    {% endblock %}
+</div>
+{% endblock navigation %}
+
+{% block content %}
+{% block form_title %} <h1 class="middle-text">{{ title }}</h1> {% endblock form_title %}
+<form action="" method="POST" class="add-form bottom-margin">
+    {{ form.hidden_tag() }}
+    {% for field in form if field.name not in ['submit', 'csrf_token'] %}
+    <div>
+        {{ field.label(class="add-form-label") }}
+        {{ field }}
+    </div>
+    {% endfor %}
+    {% block form_btn %}{{ form.submit(class="btn") }}{% endblock %}
+</form>
+{% endblock content %}

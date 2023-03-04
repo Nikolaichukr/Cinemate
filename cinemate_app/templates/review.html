@@ -2,6 +2,11 @@
 
 {% block content %}
 <h1 class="middle-text">Review by {{ review.nickname }}</h1>
+
+{% for cat, msg in get_flashed_messages(True) %}
+<div class="flash {{cat}}">{{msg}}</div>
+{% endfor %}
+
 <div class="div-row">
     <div class="div-cell"><span><b>Movie:</b> {{ review.movie.title }}</span></div>
     <div class="div-cell"><span><b>Score:</b> {{ review.score }}</span></td></div>
@@ -10,13 +15,16 @@
 <div class="text">
     <p>{{ review.comment }}</p>
 </div>
-<div class="div-row">
+<div class="div-row bottom-margin">
     <div class="div-cell">
-        <a href="{{ url_for('movies.movie', movie_id=review.movie.id) }}" class="btn add button-margin left">Movie Page</a>
+        <a href="{{ url_for('movies.movie', movie_id=review.movie.id) }}"
+           class="btn right-btn-margin button-margin left">Movie Page</a>
     </div>
     <div class="div-cell">
-        <a href="{{ url_for('reviews.update_review') }}" class="btn add button-margin left">Update</a>
-        <button class="btn add red button-margin">Delete</button>
+        <a href="{{ url_for('reviews.update_review', review_id=review.id) }}"
+           class="btn right-btn-margin button-margin left">Update</a>
+        <a href="{{ url_for('reviews.delete_review', review_id=review.id) }}"
+           class="btn right-btn-margin red button-margin">Delete</a>
     </div>
 </div>
 {% endblock content %}

@@ -1,9 +1,19 @@
 {% extends 'base.html' %}
 
+{% block navigation %}
+<a href="{{ url_for('movies.movies_page') }}">Movies</a>
+<a class="active" href="{{ url_for('reviews.reviews_page') }}">Reviews</a>
+{% endblock navigation %}
+
 {% block content %}
 {{ super() }}
+
+{% for cat, msg in get_flashed_messages(True) %}
+<div class="flash {{cat}}">{{msg}}</div>
+{% endfor %}
+
 {% if reviews_list %}
-<table>
+<table class="bottom-margin">
     <tr class="table-head">
         <td>Nickname</td>
         <td>Score</td>
@@ -26,7 +36,6 @@
     {% endfor %}
 </table>
 {% else %}
-<h2 class="middle-text">There are no reviews in database right now, but you can always add one.</h2>
+<h2 class="middle-text">There are no reviews in the database right now.</h2>
 {% endif %}
-<a href="{{ url_for('reviews.add_review') }}" class="btn add">Add Review</a>
 {% endblock content %}

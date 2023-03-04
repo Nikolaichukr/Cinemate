@@ -34,14 +34,20 @@ body {
     color: #fefefe;
 }
 
+/* Styles for a cancel button */
 .cancel-div > a {
     float: right;
-    background-color: #b94040;
     color: #fefefe;
 }
 
-.cancel-div > a:hover {
-    background-color: #9d3434;
+/* Red color for buttons */
+.red {
+    background-color: #b94040 !important;
+}
+
+/* Red color for buttons when hovered */
+.red:hover {
+    background-color: #9d3434 !important;
 }
 
 /* Title text */
@@ -78,11 +84,13 @@ body {
     margin-bottom: 3%;
 }
 
+/* Styles for a filter year form */
 .filter-year > form {
     display: flex;
     justify-content: space-between;
 }
 
+/* Styles for a filter year form input fields */
 .filter-field > input {
     font-size: 22px;
     display: block;
@@ -90,10 +98,12 @@ body {
     margin-top: 7px;
 }
 
+/* Styles for a filter year form labels */
 .filter-field > label {
     font-size: 20px;
 }
 
+/* Table styles (borders) */
 table, th, td {
     border: 1px solid gray;
     border-collapse: collapse;
@@ -106,10 +116,12 @@ table {
     width: 75%;
 }
 
+/* Bold text for a table header */
 .table-head {
     font-weight: 800;
 }
 
+/* Table cell styles */
 td {
     text-align: center;
     vertical-align: middle;
@@ -117,24 +129,19 @@ td {
     font-size: 20px;
 }
 
-.add {
+/* Style to display button on a right side with some margin */
+.right-btn-margin {
     float: right;
     margin-right: 12.5%;
 }
 
-.red {
-    background-color: #b94040;
-}
-
-.red:hover {
-    background-color: #9d3434;
-}
-
+/* Delete button styles */
 .btn-right {
     margin-top: 5px !important;
     margin-right: 12.5% !important;
 }
 
+/* From styles */
 .add-form {
     width: 50%;
     background-color: #3b3b42;
@@ -148,16 +155,19 @@ td {
     flex-direction: column;
 }
 
+/* Form elements styling and positioning */
 .add-form > div {
     width: 100%;
     justify-content: space-between;
     margin-top: 30px;
 }
 
-.add-form > button {
+/* Submit button position */
+.form-submit {
     margin-left: auto;
 }
 
+/* Form labels styles */
 .add-form-label {
     width: 18%;
     clear: left;
@@ -168,6 +178,7 @@ td {
     margin-top: 10px;
 }
 
+/* Styles for form input field */
 .add-form > div > input, textarea {
     height: 40px;
     font-size: 20px;
@@ -177,15 +188,20 @@ td {
     padding: 3px;
 }
 
+/* Styles for comment textarea */
 .add-form > div > textarea {
     height: 80px;
+    min-width: 58%;
     max-width: 58%;
+    min-height: 40px;
 }
 
+/* Change color for some link elements */
 .movie, .review {
     color: #05060B;
 }
 
+/* Positioning elements */
 .div-row {
     display: flex;
     width: 75%;
@@ -194,32 +210,59 @@ td {
     margin-top: 2%;
 }
 
+/* Some space at the end of the page */
+.bottom-margin {
+    margin-bottom: 100px !important;
+}
+
+/* Elements positioning */
 .div-cell {
     width: 50%;
     font-size: 25px;
 }
 
+/* Adjust table title position on movie page */
 .table-title-left {
     margin-left: 12.5%;
     margin-top: 40px;
 }
 
-.rating {
-    font-size: 25px;
-    margin-top: 5px;
-}
-
+/* Style for a review comment */
 .text {
     width: 75%;
     margin-left: auto;
     margin-right: auto;
+    font-size: 25px;
+    margin-bottom: 80px;
 }
 
+/* Adjust buttons position */
 .button-margin {
     margin-top: 0;
     margin-right: 0;
 }
 
+/* Float for buttons on review page */
 .left {
     float: left;
+}
+
+/* Flash message style */
+.flash {
+    padding: 10px;
+    width: 40%;
+    margin-left: 12.5%;
+    margin-bottom: 25px;
+}
+
+/* Flash message - success */
+.flash.success {
+    border: 1px solid #21DB56;
+    background: #AEFFC5;
+}
+
+/* Flask message - error */
+.flash.error {
+    border: 1px solid #FF4343;
+    background: #FF9C9C;
 }

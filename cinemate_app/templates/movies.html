@@ -1,21 +1,31 @@
 {% extends 'base.html' %}
-
+{% block navigation %}
+<a class="active" href="{{ url_for('movies.movies_page') }}">Movies</a>
+<a href="{{ url_for('reviews.reviews_page') }}">Reviews</a>
+{% endblock navigation %}
 {% block content %}
 {{ super() }}
-{% if movie_list %}
+
 <div class="filter-year">
-    <form>
+    <form action="" method="POST">
+        {{ filter_form.hidden_tag() }}
         <div class="filter-field">
-            <label>From Year:</label>
-            <input class="year" type="number" min="1900" max="2023" step="1" value="1972"/>
+            <label>{{ filter_form.from_year.label() }}</label>
+            {{ filter_form.from_year(value=from_year) }}
         </div>
         <div class="filter-field">
-            <label>To Year:</label>
-            <input class="year" type="number" min="1900" max="2023" step="1" value="2023"/>
+            <label>{{ filter_form.to_year.label() }}</label>
+            {{ filter_form.to_year(value=to_year) }}
         </div>
-        <button class="btn">Search</button>
+        {{ filter_form.submit(class="btn") }}
     </form>
 </div>
+
+{% for cat, msg in get_flashed_messages(True) %}
+<div class="flash {{cat}}">{{msg}}</div>
+{% endfor %}
+
+{% if movie_list %}
 <table>
     <tr class="table-head">
         <td>Title</td>
@@ -35,7 +45,7 @@
     {% endfor %}
 </table>
 {% else %}
-<h2 class="middle-text">There are no movies in database right now, but you can always add one.</h2>
+<h2 class="middle-text">{{ empty_message }}</h2>
 {% endif %}
-<a href="{{ url_for('movies.add_movie') }}" class="btn add">Add Movie</a>
+<a href="{{ url_for('movies.add_movie') }}" class="btn right-btn-margin bottom-margin">Add Movie</a>
 {% endblock content %}

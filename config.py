@@ -1,3 +1,9 @@
+"""
+This module contains the configuration settings for a web application.
+It loads environment variables from a .env file using the dotenv and os modules.
+The Config class sets the configuration settings for the application,
+including the database URI and the application's secret key.
+"""
 from dotenv import load_dotenv
 import os
 
@@ -9,6 +15,7 @@ database = os.environ.get('MYSQL_DATABASE')
 
 
 class Config:
+    """This class sets the configuration settings for a web application"""
     DEBUG = True
     SECRET_KEY = os.urandom(32)
     SQLALCHEMY_DATABASE_URI = f"mysql+mysqlconnector://{user}:{password}@{server}/{database}"

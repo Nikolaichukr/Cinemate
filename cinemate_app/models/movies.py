@@ -11,7 +11,7 @@ class Movie(db.Model):
 
     def calculate_score(self):
         if not self.reviews:
-            return 0
+            return "-"
         return round(sum(review.score for review in self.reviews) / len(self.reviews), 1)
 
     def __repr__(self):

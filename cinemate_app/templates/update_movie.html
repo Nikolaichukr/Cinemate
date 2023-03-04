@@ -1,8 +1,9 @@
-{% extends 'base.html' %}
+{% extends 'form-template.html' %}
 
-{% block navigation %}
-{{ super() }}
-<div class="cancel-div">
-    <a href="{{ url_for('movies.movies_page') }}">Cancel</a>
-</div>
-{% endblock navigation %}
+{% block cancel_link %}
+<a class="red" href="{{ url_for('movies.movie', movie_id=movie.id) }}">Cancel</a>
+{% endblock %}
+
+{% block form_btn %}
+{{ form.submit(class="btn form-submit", value="Update") }}
+{% endblock %}

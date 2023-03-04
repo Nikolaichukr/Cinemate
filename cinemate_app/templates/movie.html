@@ -2,17 +2,24 @@
 
 {% block content %}
 <h1 class="middle-text">{{ movie.title }}</h1>
+
+{% for cat, msg in get_flashed_messages(True) %}
+<div class="flash {{cat}}">{{msg}}</div>
+{% endfor %}
+
 <div class="div-row">
     <div class="div-cell"><span><b>Director:</b> {{ movie.director }}</span></div>
-    <div class="div-cell"><span><b>Genre:</b> {{ movie.genre }}</span></td></div>
+    <div class="div-cell"><span><b>Genre:</b> {{ movie.genre }}</span></div>
 </div>
 <div class="div-row">
     <div class="div-cell"><span><b>Year:</b> {{ movie.year }}</span></div>
     <div class="div-cell">
-        <a href="{{ url_for('movies.update_movie') }}" class="btn add button-margin">Update</a>
+        <a href="{{ url_for('movies.update_movie', movie_id=movie.id) }}" class="btn right-btn-margin button-margin">Update</a>
     </div>
 </div>
-<button class="btn add button-margin red btn-right">Delete</button>
+<a href="{{ url_for('movies.delete_movie', movie_id=movie.id) }}"
+   class="btn right-btn-margin button-margin red btn-right">Delete</a>
+
 <h2 class="table-title-left">Reviews</h2>
 {% if movie.reviews %}
 <table>
@@ -32,12 +39,13 @@
 {% else %}
 <h2 class="middle-text">There is no reviews to this movie yet.</h2>
 {% endif %}
-<div class="div-row">
+<div class="div-row bottom-margin">
     <div class="div-cell">
-        <span class="rating"><b>Rating:</b> {{ movie.calculate_score() }}</span>
+        <span><b>Rating:</b> {{ movie.calculate_score() }}</span>
     </div>
     <div class="div-cell">
-        <a href="{{ url_for('reviews.add_review') }}" class="btn add button-margin">Add Review</a>
+        <a href="{{ url_for('reviews.add_review', movie_id=movie.id) }}" class="btn right-btn-margin button-margin">Add
+            Review</a>
     </div>
 </div>
 {% endblock content %}

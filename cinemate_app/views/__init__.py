@@ -1,5 +1,2 @@
-from . import movies
-from . import reviews
-
-movies = movies.movies
-reviews = reviews.reviews
+from .movies import movies
+from .reviews import reviews
