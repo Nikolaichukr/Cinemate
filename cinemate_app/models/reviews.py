@@ -8,6 +8,15 @@ class Review(db.Model):
     comment = db.Column(db.Text)
     movie_id = db.Column(db.Integer, db.ForeignKey('movie.id'), nullable=False)
 
+    def as_dict(self):
+        return {
+            "id": self.id,
+            "nickname": self.nickname,
+            "score": self.score,
+            "comment": self.comment,
+            "movie_id": self.movie_id
+        }
+
     def __repr__(self):
         return f"Review {self.id} - {self.nickname} ({self.score})"
 

@@ -14,6 +14,16 @@ class Movie(db.Model):
             return "-"
         return round(sum(review.score for review in self.reviews) / len(self.reviews), 1)
 
+    def as_dict(self):
+        return {
+            "id": self.id,
+            "title": self.title,
+            "year": self.year,
+            "director": self.director,
+            "genre": self.genre,
+            "review_ids": [review.id for review in self.reviews]
+        }
+
     def __repr__(self):
         return f"Movie {self.id} - {self.title}"
 
