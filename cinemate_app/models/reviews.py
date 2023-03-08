@@ -1,7 +1,19 @@
+"""
+This module defines `Review` class - a model to work with reviews table.
+"""
 from cinemate_app import db
 
 
 class Review(db.Model):
+    """
+    Model representing Review.
+
+    :param str nickname: nickname of the user
+    :param int score: score given to movie by the user
+    :param str comment: comment about the movie
+    :param movie: movie review belongs to
+    :type movie: Movie or None
+    """
     id = db.Column(db.Integer, primary_key=True)
     nickname = db.Column(db.String(70), nullable=False)
     score = db.Column(db.Integer, nullable=False, default=0)
@@ -9,6 +21,12 @@ class Review(db.Model):
     movie_id = db.Column(db.Integer, db.ForeignKey('movie.id'), nullable=False)
 
     def as_dict(self):
+        """
+        This function returns review information as a dictionary.
+
+        :return: dictionary of review info
+        :rtype: dict
+        """
         return {
             "id": self.id,
             "nickname": self.nickname,

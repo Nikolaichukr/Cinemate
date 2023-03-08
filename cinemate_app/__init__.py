@@ -52,7 +52,7 @@ migrate = Migrate(app, db, directory=MIGRATIONS_DIRECTORY)
 
 # RESTful API
 # It's necessary to import some modules here to avoid circular import
-# pylint: disable=wrong-import-position
+# pylint: disable=wrong-import-position, cyclic-import
 from .rest import movie_api, review_api
 
 api_blueprint = Blueprint('api', __name__)

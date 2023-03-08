@@ -1,5 +1,5 @@
 """
-This module contains form classes to work with movies
+This module contains form classes to work with movies.
 """
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, IntegerField
@@ -8,7 +8,8 @@ from wtforms.validators import DataRequired, Length, NumberRange
 
 # pylint: disable=too-few-public-methods
 class MovieForm(FlaskForm):
-    """Form class to add/update movies in the database"""
+    """Form class to add/update movies in the database."""
+
     title = StringField(label="Title", validators=[DataRequired(), Length(min=1, max=150)])
     year = IntegerField(label="Year",
                         validators=[DataRequired(),
@@ -20,7 +21,8 @@ class MovieForm(FlaskForm):
 
 
 class FilterMovieByYearForm(FlaskForm):
-    """Form class to filter movies by date"""
+    """Form class to filter movies by date."""
+
     msg = "Enter a number from 1900 to 2025"
     from_year = IntegerField(label="From Year:",
                              validators=[DataRequired(),
