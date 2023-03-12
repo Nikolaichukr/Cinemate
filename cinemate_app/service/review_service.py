@@ -21,7 +21,7 @@ def get_review_by_id(review_id):
     :param int review_id: id of the review.
     :return: Review or None.
     """
-    return Review.query.get(review_id)
+    return db.session.get(Review, review_id)
 
 
 def delete_review(review):

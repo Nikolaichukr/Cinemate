@@ -69,7 +69,6 @@ class MoviesAPITest(Base):
 
         # test for response if entry in DB
         populate_database.populate_with_dummy_data()
-        tester = app.test_client()
         response = tester.get('/api/movie/1', follow_redirects=True)
         with app.app_context():
             movie = movie_service.get_movie_by_id(1)
@@ -96,7 +95,6 @@ class MoviesAPITest(Base):
         self.assertTrue(b'Movie added successfully!' in data)
 
         # test with wrong input
-        tester = app.test_client()
         payload = json.dumps({
             'title': '',
             'year': 2000,
@@ -108,6 +106,45 @@ class MoviesAPITest(Base):
                                follow_redirects=True)
         statuscode = response.status_code
         self.assertEqual(statuscode, 400)
+
+    def test_put_update_movie(self):
+        """
+        Test put method for updating movies
+        """
+        # test with correct input
+        tester = app.test_client()
+        populate_database.populate_with_dummy_data()
+        payload = json.dumps({
+            'title': 'New Title',
+            'year': 2000,
+            'director': 'New Director',
+            'genre': 'New Genre'
+        })
+        response = tester.put('/api/movie/1', data=payload,
+                              headers={"Content-Type": "application/json"},
+                              follow_redirects=True)
+        statuscode = response.status_code
+        self.assertEqual(statuscode, 200)
+
+        # test with incorrect input
+        payload = json.dumps({
+            'title': '',
+            'year': 2000,
+            'director': 'New Director',
+            'genre': 'New Genre'
+        })
+        response = tester.put('/api/movie/1', data=payload,
+                              headers={"Content-Type": "application/json"},
+                              follow_redirects=True)
+        statuscode = response.status_code
+        self.assertEqual(statuscode, 400)
+
+        # test with non-existing movie
+        response = tester.put('/api/movie/0', data=payload,
+                              headers={"Content-Type": "application/json"},
+                              follow_redirects=True)
+        statuscode = response.status_code
+        self.assertEqual(statuscode, 404)
 
     def test_delete_movie(self):
         """

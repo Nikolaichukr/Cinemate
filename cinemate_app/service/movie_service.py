@@ -21,7 +21,7 @@ def get_movie_by_id(movie_id):
     :param int movie_id: id of the movie.
     :return: Movie or None.
     """
-    return Movie.query.get(movie_id)
+    return db.session.get(Movie, movie_id)
 
 
 def delete_movie(movie):
