@@ -145,7 +145,7 @@ Once you have installed the prerequisites and set up MySQL, you can run the Cine
 
 The Cinemate app should now be running at `http://127.0.0.1:8000`.
 
-## Cienmate API
+## Cinemate API
 
 `/api/movies`
 - `GET` - Retrieves all movies.
