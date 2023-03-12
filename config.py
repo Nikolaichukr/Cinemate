@@ -9,7 +9,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 user = os.environ.get('MYSQL_USER')
-password = os.environ.get('MYSQL_PASSWORD')
+password = os.environ.get('MYSQL_PASSWORD') or ''
 server = os.environ.get('MYSQL_SERVER')
 database = os.environ.get('MYSQL_DATABASE')
 
