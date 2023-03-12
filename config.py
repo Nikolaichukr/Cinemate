@@ -21,3 +21,9 @@ class Config:
     SECRET_KEY = os.urandom(32)
     SQLALCHEMY_DATABASE_URI = f"mysql+mysqlconnector://{user}:{password}@{server}/{database}"
     SQLALCHEMY_TRACK_MODIFICATIONS = False
+
+
+class TestConfig(Config):
+    """This class sets configuration settings for testing"""
+    TESTING = True
+    WTF_CSRF_ENABLED = False

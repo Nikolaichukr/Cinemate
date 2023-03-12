@@ -3,7 +3,7 @@
 
 [![linting: pylint](https://img.shields.io/badge/linting-pylint-yellowgreen)](https://github.com/PyCQA/pylint)
 [![Build Status](https://app.travis-ci.com/Nikolaichukr/Cinemate.svg?branch=main)](https://app.travis-ci.com/Nikolaichukr/Cinemate)
-
+[![Coverage Status](https://coveralls.io/repos/github/Nikolaichukr/Cinemate/badge.svg?branch=main)](https://coveralls.io/github/Nikolaichukr/Cinemate?branch=main)
 ## What is it?
 Cinemate is a Flask CRUD application that enables users to manage movies and reviews for those movies. It is a simple and intuitive application perfect for movie enthusiasts who want to keep track of their favorite movies and share their thoughts and reviews with friends.
 
