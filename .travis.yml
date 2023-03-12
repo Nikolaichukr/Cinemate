@@ -5,6 +5,12 @@ python:
 services:
   - mysql
 
+env:
+  - MYSQL_USER=flask-user
+  - MYSQL_PASSWORD=root
+  - MYSQL_SERVER=127.0.0.1:3306
+  - MYSQL_DATABASE=Cinemate
+
 before_install:
   - mysql -e 'CREATE DATABASE IF NOT EXISTS Cinemate;'
 
