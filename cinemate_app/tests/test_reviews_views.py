@@ -61,6 +61,16 @@ class ReviewsTest(Base):
         statuscode = response.status_code
         self.assertEqual(statuscode, 200)
 
+        # test add review view with post method for the movie that does not exist
+        tester = app.test_client()
+        response = tester.post('/reviews/add_review/0',
+                               data={'nickname': 'TestNickname',
+                                     'score': 10,
+                                     'comment': 'TestComment'},
+                               follow_redirects=True)
+        statuscode = response.status_code
+        self.assertEqual(statuscode, 200)
+
     def test_update_review(self):
         """
         Test /reviews/update_review/<int:review_id> views with get and post

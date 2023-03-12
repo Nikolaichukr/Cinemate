@@ -39,6 +39,18 @@ class MovieTest(Base):
         statuscode = response.status_code
         self.assertEqual(statuscode, 200)
 
+    def test_movie_by_year(self):
+        """
+        Test movies page with year filter
+        """
+        tester = app.test_client()
+        response = tester.post('/', data={
+            'from_year': 2000,
+            'to_year': 2022,
+        }, follow_redirects=True)
+        statuscode = response.status_code
+        self.assertEqual(statuscode, 200)
+
     def test_add_movie(self):
         """
         Test /add_movie view with get and post methods
