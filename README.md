@@ -145,3 +145,23 @@ Once you have installed the prerequisites and set up MySQL, you can run the Cine
 
 The Cinemate app should now be running at `http://127.0.0.1:8000`.
 
+## Cienmate API
+
+`/api/movies`
+- `GET` - Retrieves all movies.
+- `POST` - Adds a new movie. 
+
+
+` /api/movie/<movie_id:int>`
+- `GET` - Retrieves a movie by `movie_id`.
+- `POST` - Adds a review to the movie with `movie_id`.
+- `PUT` - Updates the information of the movie with `movie_id`.
+- `DELETE` - Deletes the movie with `movie_id`.
+
+`/api/reviews`
+- `GET` - Retrieves all reviews.
+
+`/api/review/<review_id:int>`
+- `GET` - Retrieves the review information by `review_id`.
+- `PUT` - Updates the current review.
+- `DELETE` - Deletes the review.
